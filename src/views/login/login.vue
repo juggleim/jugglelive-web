@@ -103,7 +103,7 @@ function onInput() {
   <div class="tyn-root jg-login-root" :class="{ 'tyn-desktop-root': juggle.isDesktop() && !utils.isMacBrowser(), 'tyn-web-root': !juggle.isDesktop() }">
       <div class="jg-login-header">
         <div class="jg-login-logo"></div>
-        <span class="jg-login-appname">JuggleChat</span>
+        <span class="jg-login-appname">JuggleLive</span>
       </div>
       <div class="jg-login-main">
         <div class="jg-login-banner"></div>
