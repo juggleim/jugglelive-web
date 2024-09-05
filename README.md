@@ -1,8 +1,6 @@
-# JuggleChat-Web
+# JuggleLive-Web
 
-基于开源 IM SDK [JuggleIM](https://github.com/juggleim) 集成的 Web Chat IM  示例，包含聊天、好友、群组等核心功能
-
-本项目支持 PC 客户端，如需 PC 端 Demo 请移步：[JuggleChat-Desktop](https://github.com/juggleim/jugglechat-desktop)
+基于开源 IM SDK [JuggleIM](https://github.com/juggleim) 集成的 Web 直播示例，包含聊天室、消息发送等核心功能
 
 ### 社区讨论
 
@@ -27,4 +25,4 @@ npm run dev
 
 ### 项目预览
 
-![](https://downloads.juggleim.com/website/static/demo-web.png)
+![](https://downloads.juggleim.com/website/static/chatroom/web-live.jpg)
