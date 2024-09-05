@@ -138,7 +138,7 @@ watch(() => props.chatroom.id, async () => {
 <template>
   <div class="jg-chatroom-container">
     <div class="jg-anchor-box">
-      <div class="jg-chatroom-title">{{ props.chatroom.title }} {{ props.chatroom.id }}</div>
+      <div class="jg-chatroom-title">{{ props.chatroom.id }} {{ props.chatroom.title }}</div>
       <video autoplay loop class="jg-anchor-video" :src="props.chatroom.url"></video>
       <div class="jg-pip-anchor"></div>
     </div>

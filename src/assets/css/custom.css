@@ -456,6 +456,8 @@
   color: #FAFAFA;
   margin: 20px 0 0 20px;
   font-weight: 700;
+  position: absolute;
+  z-index: 999;
 }
 .jg-pip-anchor{
   background-image: url(https://downloads.juggleim.com/website/static/chatroom/5.png);
