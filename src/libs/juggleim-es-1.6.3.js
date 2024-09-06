@@ -7188,16 +7188,17 @@ function getQueryBody({
   }
   if (utils.isEqual(COMMAND_TOPICS.CLEAR_MESSAGE, topic)) {
     let {
-      conversationId: targetId,
+      conversationId,
       conversationType: channelType,
       time: cleanMsgTime
     } = data;
     let codec = $root.lookup('codec.CleanHisMsgReq');
     let message = codec.create({
       channelType,
-      targetId,
+      targetId: conversationId,
       cleanMsgTime
     });
+    targetId = conversationId;
     buffer = codec.encode(message).finish();
   }
   if (utils.isEqual(COMMAND_TOPICS.JOIN_CHATROOM, topic)) {
@@ -7820,6 +7821,11 @@ function Decoder(cache, io) {
         isTop,
         unreadTag
       } = conversation;
+      if (!msg) {
+        msg = {
+          msgContent: []
+        };
+      }
       utils.extend(msg, {
         targetId
       });
@@ -8127,6 +8133,7 @@ function Decoder(cache, io) {
       });
     }
     let msgFlag = common.formatter.toMsg(flags);
+    let user = io.getCurrentUser();
     let _message = {
       conversationType,
       conversationId,
@@ -8138,7 +8145,7 @@ function Decoder(cache, io) {
       tid: msgId,
       sentTime: msgTime,
       name: msgType,
-      isSender: !!isSend,
+      isSender: utils.isEqual(user.id, senderId),
       messageIndex: msgIndex,
       mentionInfo,
       isRead: !!isRead,
@@ -8152,7 +8159,6 @@ function Decoder(cache, io) {
       flags
     };
     if (_message.isSender) {
-      let user = io.getCurrentUser();
       utils.extend(_message.sender, user);
     }
     if (utils.isEqual(conversationType, CONVERATION_TYPE.GROUP)) {
