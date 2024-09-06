@@ -565,6 +565,7 @@
 }
 .jg-member-content{
   line-height: 20px;
+  word-break: break-all;
 }
 .jg-chatroom-notify{
   color: #dbd705;
@@ -594,5 +595,7 @@
   color: #5f8df2;
   cursor: pointer;
 }
-
+.jg-chatroom-container div:last-child{
+  z-index: 999;
+}
 /* Chatroom End */

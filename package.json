@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "clipboard.js": "^1.0.1",
+    "danmaku": "^2.0.6",
     "event-source-polyfill": "^1.0.31",
     "html2canvas": "^1.4.1",
     "jugglechat-websdk": "^1.6.3",

@@ -15,7 +15,7 @@ export let RESPONSE = {
 
 export let CHATROOMS = [
   {
-    id: 'chatroom1000',
+    id: 'chatroom1001',
     title: '植物大战僵尸首秀',
     poster: 'https://downloads.juggleim.com/website/static/chatroom/1.jpeg',
     url: 'https://downloads.juggleim.com/website/static/chatroom/1.mp4',
@@ -26,7 +26,7 @@ export let CHATROOMS = [
     }
   },
   {
-    id: 'chatroom1001',
+    id: 'chatroom1002',
     title: '敢不敢和我比比谁更甜',
     poster: 'https://downloads.juggleim.com/website/static/chatroom/2.jpeg',
     url: 'https://downloads.juggleim.com/website/static/chatroom/2.mp4',
@@ -37,7 +37,7 @@ export let CHATROOMS = [
     }
   },
   {
-    id: 'chatroom1002',
+    id: 'chatroom1003',
     title: '今天和我一起拿下这个黑猴',
     poster: 'https://downloads.juggleim.com/website/static/chatroom/3.jpeg',
     url: 'https://downloads.juggleim.com/website/static/chatroom/3.mp4',
@@ -48,7 +48,7 @@ export let CHATROOMS = [
     }
   },
   {
-    id: 'chatroom1003',
+    id: 'chatroom1004',
     title: '爱运动、爱滑雪，2024 滑雪季备赛',
     poster: 'https://downloads.juggleim.com/website/static/chatroom/4.jpeg',
     url: 'https://downloads.juggleim.com/website/static/chatroom/4.mp4',
@@ -59,7 +59,7 @@ export let CHATROOMS = [
     }
   },
   {
-    id: 'chatroom1004',
+    id: 'chatroom1005',
     title: '战斗吧豌豆君，看我一决高下',
     poster: 'https://downloads.juggleim.com/website/static/chatroom/5.png',
     url: 'https://downloads.juggleim.com/website/static/chatroom/5.mp4',
@@ -70,7 +70,7 @@ export let CHATROOMS = [
     }
   },
   {
-    id: 'chatroom1005',
+    id: 'chatroom1006',
     title: '倔强青铜的逆袭之路',
     poster: 'https://downloads.juggleim.com/website/static/chatroom/6.jpeg',
     url: 'https://downloads.juggleim.com/website/static/chatroom/6.mp4',
@@ -81,7 +81,7 @@ export let CHATROOMS = [
     }
   },
   {
-    id: 'chatroom1006',
+    id: 'chatroom1007',
     title: '一个教唱歌的教授',
     poster: 'https://downloads.juggleim.com/website/static/chatroom/7.jpeg',
     url: 'https://downloads.juggleim.com/website/static/chatroom/7.mp4',
@@ -92,7 +92,7 @@ export let CHATROOMS = [
     }
   },
   {
-    id: 'chatroom1007',
+    id: 'chatroom1008',
     title: '咔咔咔卡个哇伊喽',
     poster: 'https://downloads.juggleim.com/website/static/chatroom/8.jpeg',
     url: 'https://downloads.juggleim.com/website/static/chatroom/8.mp4',

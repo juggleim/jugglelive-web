@@ -6,10 +6,12 @@ import utils from "../../common/utils";
 import { EVENT_NAME, STORAGE } from "../../common/enum";
 import common from "../../common/common";
 import chatroomTools from "./chatroom.js";
+import Danmaku from "danmaku";
 
 const props = defineProps(['chatroom']);
 const emit = defineEmits(["onquit"]);
 
+let danmu = null;
 let _user = Storage.get(STORAGE.USER_TOKEN);
 
 let juggle = im.getCurrent();
@@ -90,7 +92,7 @@ function onSend(){
 
   let info = common.getMemberInfo({ id: _user.id });
   utils.extend(_msg, { ...info, sender: _user });
-  appendMsg(_msg);
+  appendMsg(_msg, true);
   juggle.sendMessage(msg).then((msg) => {
     console.log('send message successfully.', msg)
     isSending = false;
@@ -101,12 +103,19 @@ function onSend(){
   });
 }
 
-function appendMsg(msg){
+function appendMsg(msg, isSender){
   if(!utils.isEqual(MessageType.TEXT, msg.name)){
     msg = { ...msg, content: { content: '[啊～ 收到一条来自火星的消息]' } }
   }
   state.messages.push(msg);
   scrollBottom();
+
+  if(isSender){
+    return emitDanmu(msg.content.content);
+  }
+  setTimeout(() => {
+    emitDanmu(msg.content.content);
+  }, Math.random() * 10000)
 }
 function scrollBottom() {
   nextTick(() => {
@@ -124,14 +133,41 @@ function isSameChatroom(chatroom){
 function clearCache(){
   state.messages = [utils.clone(defaultMsg)];
   state.total = 0;
+  danmu.clear();
+}
+
+function initDanmu(){
+  let danmuku = new Danmaku({
+    container: document.querySelector('.jg-anchor-box'),
+    speed: 144
+  });
+  return danmuku;
+}
+
+function emitDanmu(text){
+  danmu.emit({
+    text: text,
+    // 默认为 rtl（从右到左），支持 ltr、rtl、top、bottom。
+    mode: 'rtl',
+    style: {
+      fontSize: '18px',
+      color: '#ffffff',
+      textShadow: '-1px -1px #000, -1px 1px #000, 1px -1px #000, 1px 1px #000'
+    },
+  });
 }
 
 watch(() => props.chatroom.id, async () => {
   let { chatroom: { id } } = props;
+  if(!danmu){
+    danmu = initDanmu();
+  }
   if(!id){
     clearCache();
   }
+  
 });
+
 
 </script>
 <template>
@@ -151,15 +187,15 @@ watch(() => props.chatroom.id, async () => {
           <li class="tyn-appbar-link jg-chatroom-tool jg-chatroom-logout wr wr-quit" @click="emit('onquit')">退出</li>
         </ul>
       </div>
-        <ul class="jg-chatroom-body jg-messages" ref="messages">
-          <li class="jg-message" v-for="message in state.messages">
-            <span class="jg-tag-bg jg-member-admin" v-if="message.isAdmin"></span>
-            <span  v-if="message.grade" class="jg-tag-bg" :class="['jg-member-grade-' + message.grade]"></span>
-            <span  v-if="message.sender.name" class="jg-member-name">{{ message.sender.name }}</span>
-            <span v-if="message.isNotify" class="jg-member-content jg-chatroom-notify">{{ message.content.content }}</span>
-            <span v-else class="jg-member-content">{{ message.content.content }}</span>
-          </li>
-        </ul>
+      <ul class="jg-chatroom-body jg-messages" ref="messages">
+        <li class="jg-message" v-for="message in state.messages">
+          <span class="jg-tag-bg jg-member-admin" v-if="message.isAdmin"></span>
+          <span  v-if="message.grade" class="jg-tag-bg" :class="['jg-member-grade-' + message.grade]"></span>
+          <span  v-if="message.sender.name" class="jg-member-name">{{ message.sender.name }}</span>
+          <span v-if="message.isNotify" class="jg-member-content jg-chatroom-notify">{{ message.content.content }}</span>
+          <span v-else class="jg-member-content">{{ message.content.content }}</span>
+        </li>
+      </ul>
       <div class="jg-chatroom-footer">
         <div class="jg-chatroom-inputbox">
           <input class="form-control jg-chatroom-input" v-model="state.content" type="text" @keydown.enter="onSend">
