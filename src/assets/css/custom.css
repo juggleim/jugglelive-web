@@ -383,7 +383,7 @@
   background: #ffffff05;
 }
 .jg-chatbox{
-  height: 190px;
+  height: 150px;
   position: relative;
 }
 .jg-chatpost{
@@ -415,6 +415,9 @@
 .jg-chattitle{
   padding: 10px 0;
   font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .jg-anchorinfo{
   display: flex;

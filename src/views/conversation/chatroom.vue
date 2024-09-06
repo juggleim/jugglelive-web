@@ -12,7 +12,6 @@ const props = defineProps(['chatroom']);
 const emit = defineEmits(["onquit"]);
 
 let danmu = null;
-let _user = Storage.get(STORAGE.USER_TOKEN);
 
 let juggle = im.getCurrent();
 let { MessageType, Event, ConversationType } = juggle;
@@ -90,6 +89,8 @@ function onSend(){
 
   let _msg = utils.clone(msg);
 
+  let _user = Storage.get(STORAGE.USER_TOKEN);
+  
   let info = common.getMemberInfo({ id: _user.id });
   utils.extend(_msg, { ...info, sender: _user });
   appendMsg(_msg, true);
