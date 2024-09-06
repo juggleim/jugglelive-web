@@ -1,6 +1,5 @@
 <script setup>
 import { reactive, watch, nextTick, getCurrentInstance } from "vue";
-import { preview } from 'vue3-image-preview';
 import im from "../../common/im";
 import Storage from "../../common/storage";
 import utils from "../../common/utils";
