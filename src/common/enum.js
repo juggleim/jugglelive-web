@@ -49,7 +49,7 @@ export let CHATROOMS = [
   },
   {
     id: 'chatroom1004',
-    title: '爱运动、爱滑雪，2024 滑雪季备赛',
+    title: '爱滑雪，2024 滑雪季备赛',
     poster: 'https://downloads.juggleim.com/website/static/chatroom/4.jpeg',
     url: 'https://downloads.juggleim.com/website/static/chatroom/4.mp4',
     count: '3,948',
