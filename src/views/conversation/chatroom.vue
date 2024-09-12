@@ -114,9 +114,9 @@ function appendMsg(msg, isSender){
   if(isSender){
     return emitDanmu(msg.content.content);
   }
-  setTimeout(() => {
-    emitDanmu(msg.content.content);
-  }, Math.random() * 10000)
+  // setTimeout(() => {
+  //   emitDanmu(msg.content.content);
+  // }, Math.random() * 10000)
 }
 function scrollBottom() {
   nextTick(() => {
