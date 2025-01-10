@@ -5,7 +5,7 @@ import { EVENT_NAME, STORAGE } from "../common/enum";
 import emitter from "../common/emmit";
 import Storage from "../common/storage";
 
-let juggle = JuggleChat.init({ appkey: CONFIG.appkey, upload: OSS });
+let juggle = JuggleChat.init({ appkey: CONFIG.appkey, upload: OSS, serverList: CONFIG.serverList });
 
 
 function getCurrent(){

@@ -21,7 +21,11 @@ let SERVER_PATH = {
   GROUP_GET: 'groups/info',
 };
 utils.forEach(SERVER_PATH, (url, name) => {
-  SERVER_PATH[name] = `${CONFIG.API}${url}`;
+  let protoclName = location.protocol;
+  if(protoclName == 'file:'){
+    protoclName = 'https:';
+  }
+  SERVER_PATH[name] = `${protoclName}//${CONFIG.API}/jim/${url}`;
 });
 
 export default SERVER_PATH;

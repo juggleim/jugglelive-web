@@ -1,4 +1,5 @@
 export const CONFIG = {
-  API: 'https://appserver.jugglechat.com/',
+  API: 'ws.juggleim.com',
+  serverList: ['ws.juggleim.com'],
   appkey: 'nsw3sue72begyv7y',
 };
